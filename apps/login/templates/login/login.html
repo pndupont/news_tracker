@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="gr__getbootstrap_com">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Signin</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'login/favicon.ico' %}"/>
+    <!-- <link rel="stylesheet" href="{% static 'login/style.css' %}"> -->
+</head>
+
+
+<body class="text-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}                
+            </div>
+        </div>
+    </div>
+
+    <div style = "padding: 7%;">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-4"style="border-radius: 5%; padding: 2%; background-color: #abc4c5;">        
+                    <form action="/login_check/" method="POST" id="my_container">
+                        {% csrf_token %}
+                        <img style="width: 25%;" src="{% static "login/HLM_Logo.png" %}" alt="Hard Lens Media Logo">
+                        <h1 class="h3 mb-3 font-weight-normal" id="my_container">Please sign in</h1>
+                        <label for="username" class="sr-only">Username</label>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+                        <!-- <div class="checkbox mb-3"> -->
+                        <!-- <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label> -->
+                        <!-- </div> -->
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+                        <p class="mt-5 mb-3 text-muted" id="my_container">Modified bootstrap example</p>
+                    </form>
+
+                        <p id="my_container">Don't have an account?</p> 
+                        <a href="/register">Register a new account!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <div>
+    <div class="gr_-editor gr-iframe-first-load" style="display: none;">
+        <div class="gr_-editor_back"></div><iframe class="gr_-ifr gr-_dialog-content"></iframe>
+    </div>
+</div>
+<grammarly-card>
+    <div></div>
+</grammarly-card><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i
+        class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span> -->
+
+</html>

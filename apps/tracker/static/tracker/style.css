@@ -1,0 +1,73 @@
+* {
+	/* modified version of Jeff Star's Condensed Universal Reset 
+	https://perishablepress.com/a-killer-collection-of-global-css-reset-styles/*/
+	font-family: sans-serif;
+	font-size: 100%;
+	border: 0 none;
+	padding: 0;
+	margin: 0;
+    box-sizing: border-box;
+	background-color: #355166;
+	color: white;
+	/* outline: 1px solid red; */
+}
+body{
+	padding: 4%;
+	background-color: #355166;
+}
+h1{
+	font-size: 37px;
+	display: inline-block;
+    margin-bottom:10px;
+    color: #abc4c5;
+}
+h2{
+	color: #ABC4C5;
+	font-size: 21px;
+}
+h3{
+	font-size: 20px;
+	display:inline-block;
+    margin:10px 30px;
+    color: #abc4c5;
+
+}
+h4{
+	
+	margin-left:799px;
+	margin-top:25px;
+	display: inline-block;
+	vertical-align: top;
+    color: #abc4c5;
+
+
+}
+
+h5{
+    margin-left: 1075px;
+    color: #abc4c5;
+
+}
+h5 a{
+	color: rgb(88, 88, 88);
+    text-decoration: none;
+    color: #abc4c5;
+
+}
+p{
+    font-size: 14px;
+    color: #abc4c5;
+
+
+}
+button{
+	/* background-color: #7b7e8c; */
+	color: #ABC4C5;
+	padding: 5px 35px;
+	text-align: center;
+	font-size: 25px;
+    border-radius: 12px;
+}
+#my_container{
+	background-color: #355166;
+}

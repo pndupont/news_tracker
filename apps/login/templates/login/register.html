@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Login and Registration Page</title>
+    <meta name="description" content="Login and registration page">
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'login/favicon.ico' %}"/>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+<div class="col-6">
+    <h1>Register</h1>
+    <form action="/create_user/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" name="first_name" placeholder="First Name">
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="col">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="col">
+                <label for="username">Desired Username</label>
+                <input type="text" class="form-control" name="username" placeholder="username">
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="col">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" name="email" placeholder="Email Address">
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password"
+                    placeholder="Enter Password">
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="form-group">
+                <label for="retype_password">Retype Password</label>
+                <input type="password" class="form-control" name="retype_password"
+                    placeholder="Confirm Password">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Register</button>
+    </form>
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New List Form</title>
+    <meta name="description" content="form to create a new list, new list must have one item">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tracker/style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static '/tracker/favicon.ico' %}"/>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center" id="my_container">
+    <div class="col-6">
+        <h1>New List</h1>
+        <p>Let's go ahead and start a new list by giving it a name and at least one website to track. We can add more websites from the dashboard</p>
+        <form action="../create_list/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name">List Name (must be unique)</label>
+                <input type="text" class="form-control" name="list_name" placeholder="List Name">
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                    <label for="url">Website</label>
+                    <input type="url" class="form-control" name="url" placeholder="http://www.">
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Create List</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
